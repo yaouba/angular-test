@@ -1,0 +1,20 @@
+<div class="mb-4 d-flex justify-content-between align-items-center">
+    <button type="button" routerLink="/expense-form" class="btn btn-primary" type="button">Add Expense</button>
+    <h5>Total Expense: <strong class="text-success">$180</strong></h5>
+</div>
+
+<div class="d-flex flex-column gap-3">
+    @for (book of books; track $index) {
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">{{book.title}}</h5>
+                <h2 class="fw-bold text-success">${{book.author}}</h2>
+                <p class="card-text">{{book.note}}</p>
+                <div class="d-flex gap-2">
+                    <button (click)="editBook(book.key!)" class="btn btn-sm btn-success">Edit</button>
+                    <button (click)="removeBook(book.key!)" class="btn btn-sm btn-danger">Edit</button>
+                </div>
+            </div> 
+        </div>
+    }
+</div>

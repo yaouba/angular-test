@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-lg-6">
+        <h4>Expense Form</h4>
+
+        <form [formGroup]="bookForm" (submit)="onSubmit()">
+            <div class="mb-3">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="title" formControlName="title">
+                @if (bookForm.get('title')?.hasError('required') && bookForm.get('title')?.touched) {
+                    <div class="fomr-text text-danger">Title is required</div>
+                }
+                
+            </div>
+            <div class="mb-3">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" class="form-control" id="author" placeholder="author" formControlName="author">
+                @if (bookForm.get('author')?.hasError('required') && bookForm.get('author')?.touched) {
+                    <div class="fomr-text text-danger">Author is required</div>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="date" class="form-label">Date</label>
+                <input type="date" class="form-control" id="date" placeholder="date" formControlName="date">
+                @if (bookForm.get('date')?.hasError('required') && bookForm.get('date')?.touched) {
+                    <div class="fomr-text text-danger">date is required</div>
+                }
+            </div>
+            <div class="mb-3">
+                <label for="image" class="form-label">Select Image</label>
+                <input type="file" class="form-control" id="image" placeholder="date" (change)="onFileChange($event)">
+               
+            </div> 
+            <div class="mb-3">
+                <label for="tags" class="form-label">Tags</label>
+                <textarea class="form-control" id="tags" rows="3" formControlName="tags"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="note" class="form-label">Note</label>
+                <textarea class="form-control" id="note" rows="3" formControlName="note"></textarea>
+            </div>
+            <div class="mb-3">
+                <label for="comment" class="form-label">Comment</label>
+                <textarea class="form-control" id="comment" rows="3" formControlName="comment"></textarea>
+            </div>
+            <button class="btn btn-success" type="submit">Save Changes</button>
+        </form>
+    </div>
+</div>
